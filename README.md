@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="Testata.png" alt="Subito.it Filtri Avanzati Testata" width="60%">
 </p>
@@ -7,16 +8,20 @@ Subito.it - Filtri Avanzati 🔍
 Un avanzato script per Tampermonkey progettato per ripulire i risultati di ricerca su **Subito.it** in tempo reale. Permette di nascondere o rendere trasparenti gli annunci irrilevanti, le vetrine sponsorizzate e gli articoli fuori budget.
 
 <p align="center">
-  <img width="1074" height="748" alt="Dimostrazione Utilizzo" src="https://github.com/user-attachments/assets/298c80be-014c-45c7-b5cc-181158ec1c22" width="60%" />
+  <img width="1074" height="748" alt="Dimostrazione Utilizzo v3.0" src="https://github.com/user-attachments/assets/298c80be-014c-45c7-b5cc-181158ec1c22" width="60%" />
 </p>
+Dimostrazione utilizzo della versione 3.0.0
+
 
 ---
 
 ## Caratteristiche Principali
 
 <p align="center">
-  <img width="294" height="406" alt="Dimostrazione Utilizzo Menù" src="https://github.com/user-attachments/assets/9da0e290-78bf-4988-9811-f61bd8fdb8c6" />
+  <img width="308" height="454" alt="Menù v3.1" src="https://github.com/user-attachments/assets/7e48c21e-22d8-48f3-a1ed-4f6ffa1cd6f6" />
 </p>
+Menù della versione 3.1.0
+
 
 * 💰 **Filtro Prezzo (Min / Max):** Definisci un range di prezzo esatto. Gli annunci "In regalo" o senza prezzo vengono gestiti in modo intelligente senza essere nascosti.
 * 🚫 **Blacklist:** Escludi annunci contenenti specifiche parole. Utilizza una logica avanzata a parole esatte (es. inserendo `mac` non nasconderà `macchina`).
@@ -25,6 +30,7 @@ Un avanzato script per Tampermonkey progettato per ripulire i risultati di ricer
    **Modalità Fantasma:** L'annuncio viene reso quasi invisibile (10% di opacità e scala di grigi), ma resta cliccabile passandoci sopra col mouse.
    **Scomparsa Totale:** L'annuncio viene completamente rimosso dalla pagina e la griglia si ricompatta.
 * 🎛️ **Interfaccia Spostabile:** Un pannello fluttuante, riducibile a icona e posizionabile ovunque nello schermo.
+* **Tasto Reset:** Un tasto per riportare tutti i campi allo stato di default (cioè vuoti).
 
 ---
 
