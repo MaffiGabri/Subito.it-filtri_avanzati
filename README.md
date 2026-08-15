@@ -67,4 +67,4 @@ Apri una [Issue](https://github.com/MaffiGabri/Subito.it-filtri_avanzati/issues)
 ![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Supported-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-*Disclaimer: Questo script è un progetto amatoriale e non è affiliato, associato o approvato da Subito.it.*
+*Disclaimer: Questo script è un progetto amatoriale e non è affiliato, associato o approvato da Subito.it. Inoltre è stata usata AI per la programmazione, ma sotto mio scrutinio e sotto la mia totale direzione e visione.*
