@@ -8,9 +8,9 @@ Subito.it - Filtri Avanzati 🔍
 Un avanzato script per Tampermonkey progettato per ripulire i risultati di ricerca su **Subito.it** in tempo reale. Permette di nascondere o rendere trasparenti gli annunci irrilevanti, le vetrine sponsorizzate e gli articoli fuori budget.
 
 <p align="center">
-  <img width="1074" height="748" alt="Dimostrazione Utilizzo v3.0" src="https://github.com/user-attachments/assets/298c80be-014c-45c7-b5cc-181158ec1c22" width="60%" />
+  <img width="1056" height="774" alt="Subito_V3 2" src="https://github.com/user-attachments/assets/12181e52-d592-47e2-ba7a-64b5e5974b07" width="60%" />
 </p>
-Dimostrazione utilizzo della versione 3.0.0
+Dimostrazione utilizzo della versione 3.2.0
 
 
 ---
@@ -19,9 +19,9 @@ Dimostrazione utilizzo della versione 3.0.0
 
 <p align="center">
   <img width="308" height="454" alt="Menù v3.1" src="https://github.com/user-attachments/assets/7e48c21e-22d8-48f3-a1ed-4f6ffa1cd6f6" />
-</p>
-Menù della versione 3.1.0
 
+  Menù della versione 3.1.0
+</p>
 
 * 💰 **Filtro Prezzo (Min / Max):** Definisci un range di prezzo esatto. Gli annunci "In regalo" o senza prezzo vengono gestiti in modo intelligente senza essere nascosti.
 * 🚫 **Blacklist:** Escludi annunci contenenti specifiche parole. Utilizza una logica avanzata a parole esatte (es. inserendo `mac` non nasconderà `macchina`).
