@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Subito.it - Filtri Avanzati (Prezzo, Blacklist, Vetrina)
 // @namespace    http://tampermonkey.net/
-// @version      3.1.0
+// @version      3.2.0
 // @description  Filtra annunci su Subito.it per prezzo, parole chiave e nasconde la vetrina
 // @author       MaffiGabri
 // @match        *://*.subito.it/*
@@ -148,6 +148,16 @@ Questo script crea un'interfaccia fluttuante su Subito.it che permette di ripuli
                 cursor: pointer !important;
             }
             .tm-checkbox-wrapper label { font-size: 13px; color: #343a40; cursor: pointer; user-select: none; font-weight: 500;}
+
+            /* Animazione Ciclica per il Pallino */
+            @keyframes tm-color-cycle {
+                0%   { background-color: #ff3e41; } /* Rosso Subito */
+                50%  { background-color: #28a745; } /* Verde Attivo */
+                100% { background-color: #ff3e41; } /* Torna Rosso */
+            }
+            .tm-circle-animated {
+                animation: tm-color-cycle 3s infinite ease-in-out;
+            }
         `;
         document.head.appendChild(style);
     }
@@ -352,9 +362,12 @@ Questo script crea un'interfaccia fluttuante su Subito.it che permette di ripuli
         panel.innerHTML = `
             <div id="tm-drag-header">
                 <span style="font-weight: 700; color: #ff3e41; font-size: 14px; letter-spacing: -0.3px;">⠿ Filtri Subito</span>
-                <button id="tm-toggle-btn" style="background:none; border:none; font-size:20px; font-weight:bold; color:#6c757d; cursor:pointer; line-height: 1;">
-                    ${state.isMinimized ? '+' : '−'}
-                </button>
+                <div style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
+                    <span id="tm-status-circle" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                    <button id="tm-toggle-btn" style="background:none; border:none; font-size:20px; font-weight:bold; color:#6c757d; cursor:pointer; line-height: 1;">
+                        ${state.isMinimized ? '+' : '−'}
+                    </button>
+                </div>
             </div>
 
             <div id="tm-panel-body" class="tm-panel-body ${state.isMinimized ? 'tm-hidden' : ''}">
@@ -401,17 +414,28 @@ Questo script crea un'interfaccia fluttuante su Subito.it che permette di ripuli
         function updateStateUI() {
             const toggleBtn = document.getElementById('tm-btn-toggle');
             const statusText = document.getElementById('tm-status-text');
+            const statusCircle = document.getElementById('tm-status-circle');
 
             if (state.isActive) {
                 toggleBtn.textContent = 'Attivo';
                 toggleBtn.className = 'tm-btn tm-btn-on';
                 statusText.textContent = 'Filtri Attivi sulla griglia';
                 statusText.style.color = '#28a745';
+
+                if (statusCircle) {
+                    statusCircle.classList.add('tm-circle-animated');
+                    statusCircle.style.backgroundColor = '';
+                }
             } else {
                 toggleBtn.textContent = 'Spento';
                 toggleBtn.className = 'tm-btn tm-btn-off';
                 statusText.textContent = 'Filtri Disattivati';
                 statusText.style.color = '#6c757d';
+
+                if (statusCircle) {
+                    statusCircle.classList.remove('tm-circle-animated');
+                    statusCircle.style.backgroundColor = '#6c757d';
+                }
             }
         }
 
@@ -526,8 +550,25 @@ Questo script crea un'interfaccia fluttuante su Subito.it che permette di ripuli
             document.getElementById('tm-check-sponsored').checked = false;
             document.getElementById('tm-check-collapse').checked = false;
 
-            // 2. Simula il click su "Applica" per salvare a zero e ripulire la pagina
-            document.getElementById('tm-btn-apply').click();
+            // 2. Svuota lo stato interno e spegne il filtro
+            state.minPrice = '';
+            state.maxPrice = '';
+            state.blacklist = '';
+            state.hideSponsored = false;
+            state.collapseMode = false;
+            state.isActive = false;
+
+            // 3. Salva la pulizia nel LocalStorage
+            localStorage.setItem('subitoMinPrice', '');
+            localStorage.setItem('subitoMaxPrice', '');
+            localStorage.setItem('subitoBlacklist', '');
+            localStorage.setItem('subitoHideSponsored', 'false');
+            localStorage.setItem('subitoCollapseMode', 'false');
+            localStorage.setItem('subitoFilterActive', 'false');
+
+            // 4. Aggiorna l'interfaccia (il pallino torna grigio) e ripulisce la pagina
+            updateStateUI();
+            forceRecalculateAll();
         });
     }
 
