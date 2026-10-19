@@ -3,38 +3,50 @@
   <img src="Testata.png" alt="Subito.it Filtri Avanzati Testata" width="60%">
 </p>
 
-Subito.it - Filtri Avanzati 🔍
+# Subito.it - Filtri Avanzati & Automazione 🔍
 
-Un avanzato script per Tampermonkey progettato per ripulire i risultati di ricerca su **Subito.it** in tempo reale. Permette di nascondere o rendere trasparenti gli annunci irrilevanti, le vetrine sponsorizzate e gli articoli fuori budget.
+Widget che potenzia la navigazione su Subito.it introducendo filtri prezzo, rimozione dei blocchi pubblicitari e strumenti di automazione per la visualizzazione e lo scorrimento dei risultati.
 
 <p align="center">
-  <img width="1056" height="774" alt="Subito_V3 2" src="https://github.com/user-attachments/assets/12181e52-d592-47e2-ba7a-64b5e5974b07" width="60%" />
+  <img width="1056" height="774" alt="Utilizzo v4.0" src="https://github.com/user-attachments/assets/bdf29609-7509-417d-9d8b-a87200967a40" width="60%" />
 </p>
-Dimostrazione utilizzo della versione 3.2.0
+Dimostrazione utilizzo della versione 4.0
 
 
 ---
 
-## Caratteristiche Principali
+## FUNZIONALITÀ
 
 <p align="center">
-  <img width="308" height="454" alt="Menù v3.1" src="https://github.com/user-attachments/assets/7e48c21e-22d8-48f3-a1ed-4f6ffa1cd6f6" />
+  <img align="right" height="600" alt="Menù v4.0" src="https://github.com/user-attachments/assets/9f2e3dc6-b4a3-43d4-bb0c-d38e208df462" />
 
-  Menù della versione 3.1.0
+  Menù della versione 4.0
 </p>
 
-* 💰 **Filtro Prezzo (Min / Max):** Definisci un range di prezzo esatto. Gli annunci "In regalo" o senza prezzo vengono gestiti in modo intelligente senza essere nascosti.
-* 🚫 **Blacklist:** Escludi annunci contenenti specifiche parole. Utilizza una logica avanzata a parole esatte (es. inserendo `mac` non nasconderà `macchina`).
-* 🏷️ **Rimozione Vetrina / Venditore Pro:** Nascondi con un solo click tutti gli annunci sponsorizzati o messi in evidenza.
-*  **Doppia Modalità di Nascondere:**
-   **Modalità Fantasma:** L'annuncio viene reso quasi invisibile (10% di opacità e scala di grigi), ma resta cliccabile passandoci sopra col mouse.
-   **Scomparsa Totale:** L'annuncio viene completamente rimosso dalla pagina e la griglia si ricompatta.
-* 🎛️ **Interfaccia Spostabile:** Un pannello fluttuante, riducibile a icona e posizionabile ovunque nello schermo.
-* **Tasto Reset:** Un tasto per riportare tutti i campi allo stato di default (cioè vuoti).
+### Filtri Annunci
+* Range di Prezzo.
+* Blacklist Avanzata: esclusione di parole precise (cioè <mac> non esclude <macchina>).
+* Esclusione Vetrina / Sponsorizzati.
+* Esclusione Annunci Senza Prezzo.
+* Esclusione Aziende / Rivenditori.
+* Modalita Visive:
+  * Modalita Fantasma: riduce l'opacita degli annunci esclusi, rendendoli nuovamente visibili al passaggio del mouse.
+  * Scomparsa Totale: rimuove completamente l'annuncio e collassa la griglia.
 
+### Pulizia Interfaccia
+* Blocco Pubblicita: rimozione di banner top, laterali, promozionali e slot sponsorizzati.
+
+### Automazione della Navigazione
+* Auto-Start alla Lista: all'apertura o al cambio di pagina, lo scroll si posiziona automaticamente sopra il primo annuncio reale, superando l'intestazione.
+* Auto-Scroll: scorrimento automatico verso il basso con regolazione numerica della velocità.
+* Auto-Skip a Fine Pagina: passaggio automatico alla pagina successiva dopo un intervallo temporale predefinito, si avvia quando i bottoni delle pagine diventano visibili.
+* Pausa se interagisci: il conto alla rovescia dell'auto-skip e lo scorrimento si interrompono automaticamente se il cursore del mouse sosta sopra un annuncio.
+* Modalita Intelligente:
+  * Scroll a Step: per leggere meglio.
+  * Calcolo Dinamico Skip: in base a quanti annunci ci sono all ultima riga e quanti secondi si impostano.
 ---
 
-## 📦 Installazione
+## 📦 INSTALLAZIONE
 
 1. Assicurati di avere l'estensione **Tampermonkey** installata sul tuo browser, clicca sul tuo browser per installarla:  [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo),    [Firefox](https://addons.mozilla.org/it/firefox/addon/tampermonkey/),    [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikflhlhnmldbdhaainainbdfeagmcog).
 
@@ -47,14 +59,13 @@ Dimostrazione utilizzo della versione 3.2.0
 
 ---
 
-## 🛠️ Come si usa
+## 🛠️ COME SI USA?
 
-1. Quando navighi su Subito.it, vedrai un pannello chiamato **⠿ Filtri Subito** , aprilo e chiudilo cliccando il tasto in alto a destra del pannello col bordo rosso.
-2. **Imposta i valori:** Inserisci il prezzo Minimo/Massimo e le parole da escludere (separate da virgola, es: `rotto, difettoso, cerco`).
-3. Scegli se spuntare **Scomparsa totale** o mantenere la modalità fantasma.
-4. Clicca su **Applica** per attivare i filtri. Puoi accendere o spegnere lo script in qualsiasi momento col tasto **Acceso / Spento**.
-5. Puoi trascinare il pannello dove preferisci prendendolo dall'intestazione grigia.
-
+All'apertura della pagina comparirà un pannello fluttuante:
+* Trascinamento e Riduzione: la barra superiore consente di spostare il pannello in qualsiasi punto dello schermo; il pulsante laterale riduce l'interfaccia a icona o apre il widget.
+* Applicazione Filtri: i campi testuali supportano l'aggiornamento automatico durante la digitazione oppure l'invio manuale tramite tasto Enter o pulsante "Applica".
+* Menu Impostazioni Avanzate: il menu a tendina racchiude i filtri secondari, la rimozione banner e tutti i parametri di navigazione automatica.
+* Contatore in Tempo Reale: una barra di stato in fondo al pannello indica costantemente il numero di inserzioni nascoste rispetto al totale presente nella pagina.
 ---
 
 ## 💬 Bug e Suggerimenti
@@ -67,4 +78,4 @@ Apri una [Issue](https://github.com/MaffiGabri/Subito.it-filtri_avanzati/issues)
 ![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Supported-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-*Disclaimer: Questo script è un progetto amatoriale e non è affiliato, associato o approvato da Subito.it. Inoltre è stata usata AI per la programmazione, ma sotto mio scrutinio e sotto la mia totale direzione e visione.*
+*Disclaimer: Questo script è un progetto amatoriale e non è affiliato, associato o approvato da Subito.it. Inoltre è stata usata AI per la programmazione, ma sotto mio scrutinio e sotto la mia direzione e visione.*
